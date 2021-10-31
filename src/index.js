@@ -3,12 +3,26 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import firebase from "firebase/compat";
+import firebaseConfig from "./firebaseConfig";
+import {BrowserRouter} from "react-router-dom";
+import {PersistGate} from 'redux-persist/integration/react'
+import {store, persistor} from "./ReduxAndOther/store/store";
+import {Provider} from "react-redux";
+
+firebase.initializeApp(firebaseConfig)
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <BrowserRouter>
+            <Provider store={store}>
+                <PersistGate loading={null} persistor={persistor}>
+                    <App/>
+                </PersistGate>
+            </Provider>
+        </BrowserRouter>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,0 +1,75 @@
+.header {
+    background: #fff;
+    position: fixed;
+    width: 100%;
+    /*z-index: 5;*/
+    max-width: 375px;
+    border-bottom: 1px solid rgba(190, 190, 190, 0.5);
+}
+
+.header__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.header__id-profile {
+    margin: 0;
+    font-size: 20px;
+    font-family: "Helvetica Neue";
+    font-weight: 700;
+}
+
+.header__button-wrapper {
+    display: flex;
+}
+
+.header__button {
+    border: none;
+    width: 24px;
+    height: 24px;
+    background-size: 24px;
+}
+
+.header__button-add-card {
+    margin-right: 10px;
+    background: no-repeat center/24px url("../../../images/icon/icon-plus.svg");
+}
+
+.header__button-menu {
+    background: no-repeat center/24px url("../../../images/icon/icon-menu.svg");
+}
+
+.header__publications-wrapper {
+    padding: 10px;
+}
+
+.header__publications-id-profile,
+.header__subscribers-id-profile {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(95, 93, 93, 0.7);
+    text-transform: uppercase;
+    margin-bottom: 2px;
+    text-align: center;
+}
+
+.header__publications-title,
+.header__subscribers-title {
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.header__publications-button,
+.header__subscribers-button {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translate(0, -50%);
+    width: 20px;
+    height: 20px;
+    background: no-repeat center/20px url('../../../images/icon/icon-left-arrow.svg');
+    cursor: pointer;
+}
