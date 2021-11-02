@@ -4,7 +4,7 @@ import * as api from "../src/components/API/api"
 import Publications from "./components/pages/Publications/Publications";
 import {Switch, Route, useHistory} from "react-router-dom";
 import Subscribers from "./components/pages/Subscribers/Subscribers";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {
     addLoggedInUser,
 } from "./ReduxAndOther/features/loggedInUser/loggedInUserSlice";
@@ -20,12 +20,8 @@ function App() {
     const dispatch = useDispatch()
     const history = useHistory()
 
+    const myUserId = useSelector((state) => state.loggedInUser.value)
     const [isActivePreloader, setIsActivePreloader] = useState(true)
-
-    const data = {
-        email: '10@m.ru',
-        password: '123456789'
-    }
 
     const handleLogin = async ({email, password}) => {
         const userId = await api.login({email, password})
@@ -33,8 +29,16 @@ function App() {
         history.push(`/${userId}`)
     }
 
+    const checkToken = () => {
+        if (myUserId !== "") {
+            history.push(`/${myUserId}`)
+        } else {
+            history.push(`/signin`)
+        }
+    }
+
     useEffect(() => {
-        handleLogin(data)
+        checkToken()
     }, [])
 
     return (
@@ -44,7 +48,7 @@ function App() {
                     <Login handleLogin={handleLogin}/>
                 </Route>
                 <ProtectedRoute path="/publications" component={Publications}/>
-                <Route path="/subscribers" component={Subscribers}/>
+                <ProtectedRoute path="/subscribers" component={Subscribers}/>
                 <ProtectedRoute exact path="/:id"
                                 component={MyAccount}
                                 isActivePreloader={isActivePreloader}

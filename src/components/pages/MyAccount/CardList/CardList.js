@@ -6,7 +6,7 @@ import {useSelector} from "react-redux";
 
 const CardList = ({userProfile}) => {
 
-    const currentUser = useSelector(state => state.currentUser.value)
+    const currentUser = useSelector((state) => state.currentUser.value)
 
 
     const history = useHistory()

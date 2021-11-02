@@ -13,8 +13,8 @@ const Subscribers = () => {
     const [users, setUsers] = useState([]);
 
     const handleGetOtherUsers = async () => {
-        const allUsers = await api.getAllUsers()
-        setUsers(allUsers)
+        const allUsers = await api.getAllUsers();
+        setUsers(allUsers);
         setOtherUsersId(Object.keys(allUsers).filter(item => item !== myUserId))
     }
 
@@ -27,13 +27,15 @@ const Subscribers = () => {
             <Header/>
             <section className="subscribers">
                 <ul className="subscribers__unordered-list">
-                    {otherUsersId.map((id, index) =>
-                        <SubscribersItem
-                            id={id}
-                            key={index}
-                            userData={users[id]}
-                        />
-                    )}
+                    {
+                        otherUsersId.map((id, index) =>
+                            <SubscribersItem
+                                id={id}
+                                key={index}
+                                userData={users[id]}
+                            />
+                        )
+                    }
                 </ul>
             </section>
         </>

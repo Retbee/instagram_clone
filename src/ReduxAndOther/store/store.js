@@ -1,4 +1,3 @@
-import React from "react";
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import {logger} from "redux-logger";
 import {

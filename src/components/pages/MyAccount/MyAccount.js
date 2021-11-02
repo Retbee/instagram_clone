@@ -24,7 +24,7 @@ const MyAccount = ({
     const history = useHistory()
     const userId = history.location.pathname
     const myUserId = useSelector((state) => state.loggedInUser.value)
-    const cards = useSelector((state) => state.currentUser.value.cards)
+    const cards = useSelector((state) => state.currentUser.value).cards
 
     const [isActivePopupCreateCard, setIsActivePopupCreateCard] = useState(false)
     const [isActiveNavigationBar, setIsActiveNavigationBar] = useState(false)

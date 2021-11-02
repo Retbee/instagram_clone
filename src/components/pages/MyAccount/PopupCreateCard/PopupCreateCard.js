@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './PopupCreateCard.css'
 
 const PopupCreateCard = ({
@@ -32,10 +32,6 @@ const PopupCreateCard = ({
             textLocation,
             textDescription,
         })
-
-        // setLink('')
-        // setTextLocation('')
-        // setTextDescription('')
     }
 
     return (
